@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapHaven — Secure Private Photo & Video Backup to Your Home Server</title>
+    <meta name="description" content="SnapHaven automatically backs up full-resolution photos and videos from your mobile devices directly to your home PC or server over encrypted Wi-Fi. No cloud subscription fees.">
+    <meta name="keywords" content="photo backup, self-hosted photo sync, home server photo backup, private icloud alternative, google photos alternative">
+    
+    <!-- Open Graph / Facebook / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snaphaven.app/">
+    <meta property="og:title" content="SnapHaven — Secure Private Photo Backup">
+    <meta property="og:description" content="Direct, mTLS-encrypted photo and video backup to your own PC. Zero cloud fees. Total privacy.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Orbs -->
+    <div class="ambient-glow">
+        <div class="glow-orb-1"></div>
+        <div class="glow-orb-2"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand" id="nav-brand">
+                <!-- Concept 1: Aperture Shield Logo SVG -->
+                <svg class="brand-icon-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0284c7"/>
+                            <stop offset="100%" stop-color="#6366f1"/>
+                        </linearGradient>
+                        <linearGradient id="rainbowRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ef4444"/>
+                            <stop offset="25%" stop-color="#f59e0b"/>
+                            <stop offset="50%" stop-color="#10b981"/>
+                            <stop offset="75%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Outer Shield Contour -->
+                    <path d="M50 10 L85 24 V50 C85 70 70 85 50 92 C30 85 15 70 15 50 V24 L50 10 Z" fill="url(#shieldGrad)" opacity="0.25" stroke="url(#shieldGrad)" stroke-width="3"/>
+                    <path d="M50 16 L78 28 V48 C78 64 65 77 50 83 C35 77 22 64 22 48 V28 L50 16 Z" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+                    <!-- Inner Rainbow Lens Ring -->
+                    <circle cx="50" cy="48" r="22" stroke="url(#rainbowRing)" stroke-width="4" fill="#0f172a"/>
+                    <!-- Aperture Blades -->
+                    <circle cx="50" cy="48" r="14" fill="#1e293b"/>
+                    <path d="M42 40 L58 40 M50 34 L50 62 M42 56 L58 40" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span>SnapHaven</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#download" class="btn btn-primary">
+                    <span>Get SnapHaven</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main>
+        <section class="hero-section" id="download">
+            <div class="container">
+                <div class="hero-pill">
+                    <span class="badge-tag badge-cyan">
+                        <span>🛡️ 100% Self-Hosted & Private</span>
+                    </span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Your Photos. Your Server.<br>
+                    <span class="gradient-text">Zero Cloud Subscriptions.</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    SnapHaven automatically syncs full-resolution photos and videos from your phone straight to your home PC or server over encrypted local Wi-Fi. No monthly fees, no cloud surveillance.
+                </p>
+
+                <!-- Download CTA Group -->
+                <div class="hero-cta-group">
+                    <a href="https://github.com/jonricha/snaphaven-server/releases/latest/download/SnapHavenInstaller.exe" class="btn btn-primary btn-rainbow" id="btn-win-download">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 3.449L9.75 2.1v9.451H0m10.95-9.6L24 0v11.4H10.95M0 12.6h9.75v9.451L0 20.701M10.95 12.6H24V24l-13.05-1.8"/>
+                        </svg>
+                        <span>Download Server for Windows</span>
+                    </a>
+
+                    <button class="btn btn-secondary" onclick="openAppModal('android')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997 0-.551.4482-.9993.9993-.9993.5511 0 .9993.4483.9993.9993 0 .5511-.4482.9997-.9993.9997zm-11.046 0c-.5511 0-.9993-.4486-.9993-.9997 0-.551.4482-.9993.9993-.9993.5511 0 .9993.4483.9993.9993 0 .5511-.4482.9997-.9993.9997zm11.4045-6.02l1.9973-3.4592c.1378-.2388.0561-.5443-.1828-.6822-.2388-.1378-.5443-.0561-.6822.1828l-2.0315 3.5185c-1.5791-.721-3.376-1.127-5.2823-1.127s-3.7032.406-5.2823 1.127L3.4862 5.3628c-.1378-.2389-.4434-.3206-.6822-.1828-.2389.1379-.3206.4434-.1828.6822l1.9973 3.4592C1.9056 10.8718.0004 13.7915.0004 17.151h23.9992c0-3.3595-1.9052-6.2792-4.6151-7.8296z"/>
+                        </svg>
+                        <span>Android App</span>
+                        <span class="badge-tag badge-amber" style="font-size: 0.65rem; padding: 2px 6px;">Coming Soon</span>
+                    </button>
+
+                    <button class="btn btn-secondary" onclick="openAppModal('ios')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.66-.8 1.11-1.92.99-3.04-0.96.04-2.12.64-2.8 1.44-.61.71-1.14 1.86-1 2.96 1.08.08 2.16-.56 2.81-1.36z"/>
+                        </svg>
+                        <span>iOS App</span>
+                        <span class="badge-tag badge-amber" style="font-size: 0.65rem; padding: 2px 6px;">Coming Soon</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Live Setup Simulator -->
+                <div class="demo-window">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="window-title">SnapHaven Server Dashboard — https://127.0.0.1:50005</div>
+                        <div style="font-size: 0.75rem; color: #10b981;">● Online (mTLS)</div>
+                    </div>
+                    <div class="window-body">
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Pair Mobile Device</div>
+                            <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Instant QR Pairing</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">
+                                Scan this secure pairing code directly from the SnapHaven mobile app to establish mutual TLS client certificates. No manual configuration needed.
+                            </p>
+                            <div style="display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--accent-cyan);">
+                                <span>🔒 Port: 50005</span>
+                                <span>•</span>
+                                <span>⚡ TLS 1.3</span>
+                            </div>
+                        </div>
+
+                        <!-- Simulated QR Code Card -->
+                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid var(--border-highlight); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+                            <div style="background: #ffffff; padding: 12px; border-radius: 12px; width: 160px; height: 160px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;">
+                                <svg width="130" height="130" viewBox="0 0 100 100">
+                                    <rect width="100" height="100" fill="white"/>
+                                    <path d="M0 0h35v35H0zM65 0h35v35H65zM0 65h35v35H0z" fill="black"/>
+                                    <path d="M5 5h25v25H5zM70 5h25v25H70zM5 70h25v25H5z" fill="white"/>
+                                    <path d="M10 10h15v15H10zM75 10h15v15H75zM10 75h15v15H10z" fill="black"/>
+                                    <path d="M40 10h15v10H40zM45 25h10v15H45zM20 40h20v10H20zM65 45h20v15H65zM40 65h15v20H40zM60 75h25v15H60z" fill="black"/>
+                                </svg>
+                            </div>
+                            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">Server: Home-PC (192.168.1.120)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features">
+            <div class="container">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                    <span class="badge-tag badge-cyan">Why Choose SnapHaven</span>
+                    <h2 style="font-size: 2.5rem; margin-top: 12px;">Built for Privacy, Speed, and Peace of Mind</h2>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">Take complete control of your memories without compromising on convenience.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="glass-card">
+                        <div class="feature-icon-box">🔒</div>
+                        <h3 class="feature-title">End-to-End mTLS Security</h3>
+                        <p class="feature-desc">Mutual TLS 1.3 encryption ensures only your paired mobile devices can connect to your server. No unauthorized access, ever.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="feature-icon-box">⚡</div>
+                        <h3 class="feature-title">Gigabit Local Speeds</h3>
+                        <p class="feature-desc">Sync full-resolution 4K videos and RAW photos at maximum home Wi-Fi speeds. No internet bandwidth bottlenecks or cloud upload limits.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="feature-icon-box">💰</div>
+                        <h3 class="feature-title">Zero Monthly Subscriptions</h3>
+                        <p class="feature-desc">Stop paying $36–$120 every year for cloud storage. Store terabytes of media directly on your existing computer or hard drive.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="feature-icon-box">🔋</div>
+                        <h3 class="feature-title">Smart Background Sync</h3>
+                        <p class="feature-desc">Set background sync constraints: trigger backups automatically when connected to your home Wi-Fi and plugged into power.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" style="background: rgba(15, 23, 42, 0.4);">
+            <div class="container">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                    <span class="badge-tag badge-cyan">3 Simple Steps</span>
+                    <h2 style="font-size: 2.5rem; margin-top: 12px;">Set Up in Under 2 Minutes</h2>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step-card glass-card">
+                        <div class="step-number">1</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">Install Server</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Download and run the SnapHaven Windows installer. It runs silently in your background system tray.</p>
+                    </div>
+
+                    <div class="step-card glass-card">
+                        <div class="step-number">2</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">Scan QR Code</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Open the Web Dashboard, open the mobile app, and scan the QR code to pair your phone securely.</p>
+                    </div>
+
+                    <div class="step-card glass-card">
+                        <div class="step-number">3</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">Automatic Sync</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Your photos and videos automatically sync in full resolution whenever you connect to your home Wi-Fi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing / Lifetime Household License -->
+        <section id="pricing">
+            <div class="container">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                    <span class="badge-tag badge-amber">Fair Pricing</span>
+                    <h2 style="font-size: 2.5rem; margin-top: 12px;">Own Your Photo Server Forever</h2>
+                </div>
+
+                <div class="pricing-box">
+                    <div class="pricing-badge">Household Lifetime License</div>
+                    <h3 style="font-size: 1.8rem; margin-top: 10px;">One-Time Purchase</h3>
+                    <div class="price-display">$9.99</div>
+                    <div class="price-subtext">Pay once • Unlimited family devices • Free lifetime updates</div>
+                    
+                    <ul style="list-style: none; max-width: 480px; margin: 30px auto; text-align: left; display: grid; gap: 14px; font-size: 0.95rem;">
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-emerald);">✓</span> Run server on all household computers
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-emerald);">✓</span> Unlimited Android & iOS client device pairings
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-emerald);">✓</span> Full original resolution (4K Video, RAW, Live Photos)
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-emerald);">✓</span> Saves over $36.00/year compared to cloud subscriptions
+                        </li>
+                    </ul>
+
+                    <a href="https://github.com/jonricha/snaphaven-server/releases/latest/download/SnapHavenInstaller.exe" class="btn btn-primary btn-rainbow" style="width: 100%; max-width: 360px; padding: 14px;">
+                        <span>Get Started Free Today</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                    <h2 style="font-size: 2.5rem;">Frequently Asked Questions</h2>
+                </div>
+
+                <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 20px;">
+                    <div class="glass-card" style="padding: 24px;">
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Do my photos ever leave my local home network?</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">No! SnapHaven operates entirely peer-to-peer between your mobile device and home server over local Wi-Fi. Your photos are never uploaded to any third-party servers.</p>
+                    </div>
+
+                    <div class="glass-card" style="padding: 24px;">
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">What operating systems are supported for the server?</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">SnapHaven Server currently supports Windows 10 & 11 (with system tray integration and auto-updates). macOS and Linux builds are currently in active development.</p>
+                    </div>
+
+                    <div class="glass-card" style="padding: 24px;">
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Are original quality photo metadata and EXIF preserved?</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Yes! SnapHaven performs byte-for-byte transfers of your original files, preserving EXIF metadata, camera settings, GPS location, and video bitrate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile App "Coming Soon" Modal -->
+    <div id="appModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="closeAppModal()">&times;</button>
+            <div style="font-size: 3rem; margin-bottom: 12px;" id="modalAppIcon">📱</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 8px;" id="modalTitle">SnapHaven Mobile App</h3>
+            <div class="badge-tag badge-amber" style="margin-bottom: 16px;">Coming Soon to App Stores</div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px;" id="modalBody">
+                The SnapHaven Android application is currently in final testing before public release on Google Play.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center;">
+                <button class="btn btn-secondary" onclick="closeAppModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div>
+                <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">SnapHaven</div>
+                <div>© 2026 SnapHaven. Registered domain <a href="https://snaphaven.app" style="color: var(--accent-cyan); text-decoration: none;">snaphaven.app</a></div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://github.com/jonricha/snaphaven-server" target="_blank" class="footer-link">GitHub Repository</a>
+                <a href="#features" class="footer-link">Features</a>
+                <a href="#pricing" class="footer-link">Pricing</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
