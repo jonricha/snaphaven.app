@@ -164,9 +164,11 @@ section {
     font-weight: 700;
 }
 
-.brand-icon-svg {
+.brand-icon-img {
     width: 38px;
     height: 38px;
+    border-radius: 8px;
+    object-fit: cover;
     filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
 }
 
