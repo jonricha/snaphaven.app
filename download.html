@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>SnapHaven Server Installation & Setup Guides</title>
+    <meta name="description" content="Download and install SnapHaven Server for Windows, macOS, Linux, Docker, and NAS. Direct mTLS photo backup over local Wi-Fi.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .tab-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .tab-btn {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--border-highlight);
+            border-color: var(--accent-cyan);
+            color: #ffffff;
+            box-shadow: var(--cyan-glow);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .code-block {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #38bdf8;
+            overflow-x: auto;
+            position: relative;
+            margin: 16px 0;
+            white-space: pre;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .step-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--accent-cyan);
+            color: #000;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Orbs -->
+    <div class="ambient-glow">
+        <div class="glow-orb-1"></div>
+        <div class="glow-orb-2"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png?v=7" alt="SnapHaven Logo" class="brand-icon-img" width="44" height="44">
+                <span>SnapHaven</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-secondary">
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section style="padding-top: 140px; padding-bottom: 80px;">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+                    <span class="badge-tag badge-cyan">Server Setup &amp; Downloads</span>
+                    <h1 style="font-size: 2.8rem; margin-top: 12px;">Install SnapHaven Server</h1>
+                    <p style="color: var(--text-secondary); margin-top: 12px; font-size: 1.1rem;">
+                        SnapHaven Server runs on your computer or NAS. Choose your operating system below to download or view terminal setup commands.
+                    </p>
+                </div>
+
+                <!-- Platform Selection Tabs -->
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="showTab('windows')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 3.449L9.75 2.1v9.451H0m10.95-9.6L24 0v11.4H10.95M0 12.6h9.75v9.451L0 20.701M10.95 12.6H24V24l-13.05-1.8"/>
+                        </svg>
+                        Windows
+                    </button>
+                    <button class="tab-btn" onclick="showTab('macos')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.66-.8 1.11-1.92.99-3.04-0.96.04-2.12.64-2.8 1.44-.61.71-1.14 1.86-1 2.96 1.08.08 2.16-.56 2.81-1.36z"/>
+                        </svg>
+                        macOS
+                    </button>
+                    <button class="tab-btn" onclick="showTab('linux')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.002 0c-2.484 0-4.5 2.016-4.5 4.5 0 2.484 2.016 4.5 4.5 4.5s4.5-2.016 4.5-4.5c0-2.484-2.016-4.5-4.5-4.5zm0 1.5c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zM9 10c-1.657 0-3 1.343-3 3v4c0 1.657 1.343 3 3 3h6c1.657 0 3-1.343 3-3v-4c0-1.657-1.343-3-3-3H9z"/>
+                        </svg>
+                        Linux
+                    </button>
+                    <button class="tab-btn" onclick="showTab('docker')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4.5 10.5h3v3h-3zm4.5 0h3v3H9zm4.5 0h3v3h-3zm-9-4.5h3v3h-3zm4.5 0h3v3H9zm4.5 0h3v3h-3zm4.5 0h3v3h-3zm-9-4.5h3v3H9zm4.5 0h3v3h-3zM0 16.5c0 3.3 2.7 6 6 6h12c3.3 0 6-2.7 6-6V15H0v1.5z"/>
+                        </svg>
+                        Docker &amp; NAS
+                    </button>
+                </div>
+
+                <!-- Windows Content -->
+                <div id="tab-windows" class="tab-content active">
+                    <div class="guide-card">
+                        <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Windows 10 / 11 Setup</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                            Download the installer to run SnapHaven silently in your Windows system tray.
+                        </p>
+                        
+                        <a href="https://github.com/jonricha/snaphaven-server/releases/latest/download/SnapHavenInstaller.exe" class="btn btn-primary btn-rainbow" style="display: inline-flex; margin-bottom: 28px;">
+                            <span>Download SnapHavenInstaller.exe</span>
+                        </a>
+
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-num">1</div>
+                                <div>
+                                    <div style="font-weight: 600; color: #fff;">Run Installer</div>
+                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Launch <code>SnapHavenInstaller.exe</code> and follow the prompt.</div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-num">2</div>
+                                <div>
+                                    <div style="font-weight: 600; color: #fff;">Web Dashboard Opens</div>
+                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">The setup dashboard will open automatically in your browser displaying your pairing QR code.</div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-num">3</div>
+                                <div>
+                                    <div style="font-weight: 600; color: #fff;">Scan with Mobile App</div>
+                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Open SnapHaven on Android and scan the QR code on your monitor.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- macOS Content -->
+                <div id="tab-macos" class="tab-content">
+                    <div class="guide-card">
+                        <h2 style="font-size: 1.8rem; margin-bottom: 12px;">macOS Setup</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Download the macOS binary package or extract via Terminal.
+                        </p>
+
+                        <a href="https://github.com/jonricha/snaphaven-server/releases/latest/download/SnapHavenServer-macOS.tar.gz" class="btn btn-secondary" style="display: inline-flex; margin-bottom: 24px;">
+                            <span>Download SnapHavenServer-macOS.tar.gz</span>
+                        </a>
+
+                        <div style="font-weight: 600; margin-bottom: 8px;">Terminal Command Setup:</div>
+                        <div class="code-block" id="code-mac">
+<button class="copy-btn" onclick="copyCode('code-mac')">Copy</button>tar -xzf SnapHavenServer-macOS.tar.gz
+cd SnapHavenServer
+./snaphaven-server</div>
+                    </div>
+                </div>
+
+                <!-- Linux Content -->
+                <div id="tab-linux" class="tab-content">
+                    <div class="guide-card">
+                        <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Linux Installation</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Install via Debian/Ubuntu package (`.deb`) or compile directly from Go source.
+                        </p>
+
+                        <div style="font-weight: 600; margin-bottom: 8px;">Debian / Ubuntu (.deb):</div>
+                        <div class="code-block" id="code-deb">
+<button class="copy-btn" onclick="copyCode('code-deb')">Copy</button>wget https://github.com/jonricha/snaphaven-server/releases/latest/download/snaphaven-server_1.0.0_amd64.deb
+sudo dpkg -i snaphaven-server_1.0.0_amd64.deb
+sudo systemctl enable --now snaphaven</div>
+
+                        <div style="font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Go Source Installation:</div>
+                        <div class="code-block" id="code-go">
+<button class="copy-btn" onclick="copyCode('code-go')">Copy</button>git clone https://github.com/jonricha/snaphaven-server.git
+cd snaphaven-server/server
+go run .</div>
+                    </div>
+                </div>
+
+                <!-- Docker & NAS Content -->
+                <div id="tab-docker" class="tab-content">
+                    <div class="guide-card">
+                        <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Docker &amp; NAS Container Setup</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Deploy SnapHaven on Docker, Synology NAS, Unraid, or TrueNAS SCALE.
+                        </p>
+
+                        <div style="font-weight: 600; margin-bottom: 8px;">Docker Compose (docker-compose.yml):</div>
+                        <div class="code-block" id="code-compose">
+<button class="copy-btn" onclick="copyCode('code-compose')">Copy</button>version: '3.8'
+services:
+  snaphaven:
+    image: snaphaven/server:latest
+    container_name: snaphaven-server
+    restart: unless-stopped
+    ports:
+      - "50005:50005"
+    volumes:
+      - /path/to/your/photos:/data/photos
+      - ./config:/config</div>
+
+                        <div style="font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Docker CLI Run Command:</div>
+                        <div class="code-block" id="code-docker">
+<button class="copy-btn" onclick="copyCode('code-docker')">Copy</button>docker run -d \
+  --name snaphaven-server \
+  --restart unless-stopped \
+  -p 50005:50005 \
+  -v /path/to/your/photos:/data/photos \
+  snaphaven/server:latest</div>
+                    </div>
+                </div>
+
+                <!-- Next Step Card -->
+                <div style="max-width: 900px; margin: 40px auto 0; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--border-highlight); border-radius: var(--radius-md); padding: 24px; text-align: center;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 8px;">📱 Next Step: Scan QR Code</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Once your server is running, open the setup URL displayed in your terminal or browser, open the SnapHaven Android app, and scan the QR code to pair!
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div>
+                <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">SnapHaven</div>
+                <div>© 2026 SnapHaven. Registered domain <a href="index.html" style="color: var(--accent-cyan); text-decoration: none;">snaphaven.app</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        function copyCode(elementId) {
+            const text = document.getElementById(elementId).innerText.replace('Copy', '').trim();
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('#' + elementId + ' .copy-btn');
+            if (btn) {
+                btn.innerText = 'Copied!';
+                setTimeout(() => btn.innerText = 'Copy', 2000);
+            }
+        }
+    </script>
+</body>
+</html>
