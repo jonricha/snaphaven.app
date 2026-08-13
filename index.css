@@ -522,6 +522,120 @@ section {
     color: var(--text-primary);
 }
 
+/* ==========================================================================
+   Beta Sign-Up Card & Form Styling
+   ========================================================================== */
+.beta-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.75) 100%);
+    border: 1px solid var(--border-highlight);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), var(--cyan-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.beta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--rainbow-gradient);
+}
+
+.beta-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+    text-align: left;
+}
+
+.beta-input-wrapper {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.beta-input {
+    flex: 1;
+    min-width: 260px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.beta-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+.beta-select {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.beta-select:focus {
+    border-color: var(--accent-cyan);
+}
+
+.turnstile-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0;
+    min-height: 65px;
+}
+
+/* Status Feedback Alerts */
+.beta-status-msg {
+    display: none;
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.beta-status-msg.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--accent-emerald);
+    color: #34d399;
+}
+
+.beta-status-msg.error {
+    display: block;
+    background: rgba(244, 63, 94, 0.15);
+    border: 1px solid var(--accent-rose);
+    color: #fb7185;
+}
+
+.beta-status-msg.info {
+    display: block;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid var(--accent-cyan);
+    color: #7dd3fc;
+}
+
 /* Footer */
 footer {
     padding: 60px 0 30px;
@@ -565,4 +679,6 @@ footer {
     .hero-title { font-size: 2.2rem; }
     .hero-subtitle { font-size: 1.05rem; }
     section { padding: 60px 0; }
+    .beta-input-wrapper { flex-direction: column; }
 }
+
