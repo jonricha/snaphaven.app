@@ -266,7 +266,7 @@ cd SnapHavenServer
                         <div class="code-block" id="code-deb">
 <button class="copy-btn" onclick="copyCode('code-deb')">Copy</button>wget https://github.com/jonricha/snaphaven-server/releases/latest/download/snaphaven-server_1.0.0_amd64.deb
 sudo dpkg -i snaphaven-server_1.0.0_amd64.deb
-sudo systemctl enable --now snaphaven</div>
+sudo systemctl enable --now snaphaven-server</div>
 
                         <div style="font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Go Source Installation:</div>
                         <div class="code-block" id="code-go">
@@ -374,7 +374,7 @@ services:
                     const fileName = debUrl.split('/').pop();
                     const debCodeBlock = document.getElementById('code-deb');
                     if (debCodeBlock) {
-                        debCodeBlock.innerHTML = `<button class="copy-btn" onclick="copyCode('code-deb')">Copy</button>wget ${debUrl}\nsudo dpkg -i ${fileName}\nsudo systemctl enable --now snaphaven`;
+                        debCodeBlock.innerHTML = `<button class="copy-btn" onclick="copyCode('code-deb')">Copy</button>wget ${debUrl}\nsudo dpkg -i ${fileName}\nsudo systemctl enable --now snaphaven-server`;
                     }
                 }
             } catch (err) {
