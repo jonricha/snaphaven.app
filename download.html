@@ -266,7 +266,12 @@ cd SnapHavenServer
                         <div class="code-block" id="code-deb">
 <button class="copy-btn" onclick="copyCode('code-deb')">Copy</button>wget https://github.com/jonricha/snaphaven-server/releases/latest/download/snaphaven-server_1.0.0_amd64.deb
 sudo dpkg -i snaphaven-server_1.0.0_amd64.deb
-sudo systemctl enable --now snaphaven-server</div>
+sudo systemctl enable --now snaphaven-server
+snaphaven-server open</div>
+
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
+                            💡 <strong>Access Dashboard &amp; Pairing QR Code</strong>: Click <strong>SnapHaven Server</strong> in your desktop application grid or run <code>snaphaven-server open</code> in terminal.
+                        </p>
 
                         <div style="font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Go Source Installation:</div>
                         <div class="code-block" id="code-go">
@@ -374,7 +379,7 @@ services:
                     const fileName = debUrl.split('/').pop();
                     const debCodeBlock = document.getElementById('code-deb');
                     if (debCodeBlock) {
-                        debCodeBlock.innerHTML = `<button class="copy-btn" onclick="copyCode('code-deb')">Copy</button>wget ${debUrl}\nsudo dpkg -i ${fileName}\nsudo systemctl enable --now snaphaven-server`;
+                        debCodeBlock.innerHTML = `<button class="copy-btn" onclick="copyCode('code-deb')">Copy</button>wget ${debUrl}\nsudo dpkg -i ${fileName}\nsudo systemctl enable --now snaphaven-server\nsnaphaven-server open`;
                     }
                 }
             } catch (err) {
