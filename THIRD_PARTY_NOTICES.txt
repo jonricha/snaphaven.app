@@ -1,0 +1,24 @@
+SnapHaven Website - Third-Party Open Source Notices
+=====================================================
+
+This web page uses open-source software libraries and fonts under the following license terms:
+
+--------------------------------------------------------------------------------
+1. Inter Font Family & Roboto Font
+License: SIL Open Font License, Version 1.1 / Apache License 2.0
+Copyright (c) 2016-2020 Rasmus Anderssson, Google LLC.
+
+--------------------------------------------------------------------------------
+2. Feather Icons / Lucide Icons
+License: MIT License
+Copyright (c) 2013-2023 Cole Bemis, Lucide Contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
