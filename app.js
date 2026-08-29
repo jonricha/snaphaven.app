@@ -97,15 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 2. Email format & Gmail check for Android
+        // 2. Email format check
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email || !emailRegex.test(email)) {
             showStatus(statusDiv, 'error', 'Please enter a valid email address.');
-            return;
-        }
-
-        if (platform === 'android' && !email.toLowerCase().endsWith('@gmail.com') && !email.toLowerCase().endsWith('@googlemail.com')) {
-            showStatus(statusDiv, 'error', 'Google Play Beta requires a @gmail.com address (or Google account email logged into your phone).');
             return;
         }
 
