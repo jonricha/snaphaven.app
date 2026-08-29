@@ -213,13 +213,9 @@
                         <!-- Honeypot Bot Trap Field (Hidden) -->
                         <input type="text" name="company_website" style="display:none;" tabindex="-1" autocomplete="off">
 
+                        <input type="hidden" name="platform" value="android">
                         <div class="beta-input-wrapper">
-                            <input type="email" name="email" class="beta-input" placeholder="you@example.com" required>
-                            <select name="platform" class="beta-select">
-                                <option value="android" selected>🤖 Android (Google Play)</option>
-                                <option value="windows">🖥️ Windows Server</option>
-                                <option value="ios">🍏 iOS (TestFlight)</option>
-                            </select>
+                            <input type="email" name="email" class="beta-input" placeholder="you@example.com" required style="width: 100%;">
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: -6px;">
                             💡 Note: Must be the Google Account email signed into your Android phone's Google Play Store.
