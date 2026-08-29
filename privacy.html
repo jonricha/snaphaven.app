@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Privacy Policy — SnapHaven</title>
+    <meta name="description" content="SnapHaven Privacy Policy. SnapHaven is local-first software designed to keep your media private on your own home network with zero cloud tracking.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Orbs -->
+    <div class="ambient-glow">
+        <div class="glow-orb-1"></div>
+        <div class="glow-orb-2"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand" id="nav-brand">
+                <img src="logo.png?v=7" alt="SnapHaven Logo" class="brand-icon-img" width="44" height="44">
+                <span>SnapHaven</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="index.html#beta-signup" class="nav-link" style="color: var(--accent-cyan);">Android Beta</a></li>
+                <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="download.html" class="btn btn-primary">
+                    <span>Download Server</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main style="padding-top: 120px; padding-bottom: 80px;">
+        <div class="container" style="max-width: 800px;">
+            <div class="badge-tag badge-cyan" style="margin-bottom: 16px;">
+                <span>🛡️ Privacy First Philosophy</span>
+            </div>
+
+            <h1 style="font-family: var(--font-title); font-size: 2.5rem; margin-bottom: 12px; color: var(--text-primary);">
+                Privacy Policy
+            </h1>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px;">
+                Effective Date: August 29, 2026
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 32px; color: var(--text-secondary); line-height: 1.7;">
+                
+                <section class="glass-card" style="padding: 28px; border-radius: 16px;">
+                    <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
+                        1. Local-First & Self-Hosted Architecture
+                    </h2>
+                    <p style="margin-bottom: 12px;">
+                        SnapHaven is designed from the ground up as local-first software. When you run the SnapHaven server software on your computer, NAS, or home server, all media uploads (photos, videos, metadata) are transferred directly over your local network using mutual TLS (mTLS) encryption.
+                    </p>
+                    <p>
+                        <strong>We do not collect, process, host, or inspect your photos or personal files.</strong> Your data remains exclusively on your devices under your complete control.
+                    </p>
+                </section>
+
+                <section class="glass-card" style="padding: 28px; border-radius: 16px;">
+                    <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
+                        2. Website Data Collection
+                    </h2>
+                    <p style="margin-bottom: 12px;">
+                        When visiting our website (<strong>snaphaven.app</strong>):
+                    </p>
+                    <ul style="padding-left: 24px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Beta Signups:</strong> If you voluntarily request Android Beta access, we collect your provided email address solely for sending Google Play Store testing invitations. We do not sell or share your email with third parties.</li>
+                        <li><strong>Bot Protection:</strong> We use Cloudflare Turnstile to protect signup forms from automated spam. This service verifies human users without tracking personal browsing history.</li>
+                    </ul>
+                </section>
+
+                <section class="glass-card" style="padding: 28px; border-radius: 16px;">
+                    <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
+                        3. Code Signing & Trust Transparency
+                    </h2>
+                    <p style="margin-bottom: 12px;">
+                        SnapHaven Windows server executables are signed via automated CI/CD builds. Code signing for our open-source software is provided for free by the <strong>SignPath Foundation</strong>.
+                    </p>
+                </section>
+
+                <section class="glass-card" style="padding: 28px; border-radius: 16px;">
+                    <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
+                        4. Contact Information
+                    </h2>
+                    <p>
+                        If you have questions about this Privacy Policy or your data privacy, please open an issue on our official <a href="https://github.com/jonricha/snaphaven-server" target="_blank" style="color: var(--accent-cyan);">GitHub Repository</a> or contact us at <a href="mailto:support@snaphaven.app" style="color: var(--accent-cyan);">support@snaphaven.app</a>.
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div>
+                <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">SnapHaven</div>
+                <div>© 2026 SnapHaven. Registered domain <a href="https://snaphaven.app" style="color: var(--accent-cyan); text-decoration: none;">snaphaven.app</a></div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://github.com/jonricha/snaphaven-server" target="_blank" class="footer-link">GitHub Repository</a>
+                <a href="THIRD_PARTY_NOTICES.txt" target="_blank" class="footer-link">Open Source Licenses</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="index.html#features" class="footer-link">Features</a>
+                <a href="index.html#beta-signup" class="footer-link">Join Android Beta</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
