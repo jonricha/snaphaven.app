@@ -199,21 +199,74 @@
                 <!-- Windows Content -->
                 <div id="tab-windows" class="tab-content active">
                     <div class="guide-card">
-                        <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Windows 10 / 11 Setup</h2>
-                        <p style="color: var(--text-secondary); margin-bottom: 24px;">
-                            Download the installer to run SnapHaven silently in your Windows system tray.
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+                            <h2 style="font-size: 1.8rem; margin-bottom: 0;">Windows 10 / 11 Setup</h2>
+                            <span class="badge-tag badge-cyan">Official Store Release</span>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 28px;">
+                            Install SnapHaven Server directly from the Microsoft Store for automated updates and silent background operation, or use the Windows Package Manager (<code>winget</code>).
                         </p>
                         
-                        <a href="https://github.com/jonricha/snaphaven-server/releases/latest/download/SnapHavenInstaller.exe" class="btn btn-primary btn-rainbow" style="display: inline-flex; margin-bottom: 28px;">
-                            <span>Download SnapHavenInstaller.exe</span>
-                        </a>
+                        <!-- Option A: Microsoft Store -->
+                        <div style="margin-bottom: 28px;">
+                            <div style="font-weight: 600; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                                <span>Option A: Microsoft Store (Recommended)</span>
+                                <span style="font-size: 0.75rem; background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 4px; padding: 2px 8px; font-weight: 600;">Easiest</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 14px;">
+                                Certified and verified by Microsoft. Includes automatic background updates and isolated containerized security.
+                            </p>
+                            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://apps.microsoft.com/detail/9N6T9F73803J" target="_blank" rel="noopener" class="btn btn-primary btn-rainbow" style="display: inline-flex; gap: 10px; padding: 12px 24px;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M0 3.449L9.75 2.1v9.451H0m10.95-9.6L24 0v11.4H10.95M0 12.6h9.75v9.451L0 20.701M10.95 12.6H24V24l-13.05-1.8"/>
+                                    </svg>
+                                    <span>Get from Microsoft Store</span>
+                                </a>
+                                <a href="ms-windows-store://pdp/?productid=9N6T9F73803J" class="btn btn-secondary" style="font-size: 0.9rem; padding: 12px 18px;">
+                                    <span>Open Store App</span>
+                                </a>
+                            </div>
+                        </div>
 
+                        <!-- Option B: winget -->
+                        <div style="margin-bottom: 28px;">
+                            <div style="font-weight: 600; color: #fff; margin-bottom: 8px;">
+                                Option B: Windows Package Manager (winget)
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">
+                                Install in one step from PowerShell or Windows Terminal:
+                            </p>
+                            <div class="code-block" id="code-winget">
+<button class="copy-btn" onclick="copyCode('code-winget')">Copy</button>winget install "SnapHaven Server"</div>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: -8px;">
+                                💡 Alternatively by Store Product ID: <code>winget install 9N6T9F73803J</code>
+                            </p>
+                        </div>
+
+                        <!-- Option C: Standalone Installer -->
+                        <div style="margin-bottom: 32px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                            <div style="font-weight: 600; color: #fff; margin-bottom: 8px;">
+                                Option C: Standalone Installer (.exe)
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+                                Prefer a classic setup without the Microsoft Store? Download the standalone installer:
+                            </p>
+                            <a href="https://github.com/jonricha/snaphaven-server/releases/latest/download/SnapHavenInstaller.exe" class="btn btn-secondary" style="display: inline-flex; font-size: 0.85rem; padding: 10px 18px;">
+                                <span>Download SnapHavenInstaller.exe</span>
+                            </a>
+                        </div>
+
+                        <!-- Setup Steps -->
+                        <div style="font-weight: 600; color: #fff; margin-bottom: 12px; font-size: 1.05rem;">
+                            Quick Setup Guide
+                        </div>
                         <div class="step-list">
                             <div class="step-item">
                                 <div class="step-num">1</div>
                                 <div>
-                                    <div style="font-weight: 600; color: #fff;">Run Installer</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Launch <code>SnapHavenInstaller.exe</code> and follow the prompt.</div>
+                                    <div style="font-weight: 600; color: #fff;">Launch SnapHaven</div>
+                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Launch SnapHaven Server from the Start menu or system tray. It runs quietly in the background.</div>
                                 </div>
                             </div>
                             <div class="step-item">
@@ -227,7 +280,7 @@
                                 <div class="step-num">3</div>
                                 <div>
                                     <div style="font-weight: 600; color: #fff;">Scan with Mobile App</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Open SnapHaven on Android and scan the QR code on your monitor.</div>
+                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Open SnapHaven on Android and scan the QR code on your monitor to pair securely via mutual TLS.</div>
                                 </div>
                             </div>
                         </div>
