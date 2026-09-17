@@ -63,9 +63,9 @@
                     <span class="badge-tag badge-cyan">
                         <span>🛡️ 100% Self-Hosted & Private</span>
                     </span>
-                    <button class="badge-tag badge-amber" onclick="openAppModal('android')" style="cursor: pointer; border: none; font-family: inherit;">
-                        <span>🤖 Android App: Coming Soon (Join Beta)</span>
-                    </button>
+                    <a href="#beta-signup" class="badge-tag badge-emerald" style="cursor: pointer; border: none; font-family: inherit; text-decoration: none;">
+                        <span>🟢 Android Closed Beta Now Live</span>
+                    </a>
                 </div>
                 
                 <h1 class="hero-title">
@@ -82,9 +82,9 @@
                     <a href="download.html" class="btn btn-primary btn-rainbow" style="padding: 16px 28px; font-size: 1.05rem;" id="btn-main-download">
                         <span>🖥️ Download Server (Windows, Mac, Linux, Docker)</span>
                     </a>
-                    <button onclick="openAppModal('android')" class="btn btn-secondary" style="padding: 16px 28px; font-size: 1.05rem; border-color: var(--accent-amber); color: var(--accent-amber);">
-                        <span>🤖 Join Android Beta (Coming Soon)</span>
-                    </button>
+                    <a href="#beta-signup" class="btn btn-secondary" style="padding: 16px 28px; font-size: 1.05rem; border-color: var(--accent-emerald); color: var(--accent-emerald); text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                        <span>🤖 Join Android Beta (Google Play)</span>
+                    </a>
                 </div>
 
                 <!-- Interactive Live Setup Simulator -->
@@ -202,36 +202,63 @@
             <div class="container">
                 <div class="beta-card">
                     <div style="text-align: center;">
-                        <span class="badge-tag badge-amber">Early Access</span>
+                        <span class="badge-tag badge-emerald">Live on Google Play</span>
                         <h2 style="font-size: 2.2rem; margin-top: 12px; margin-bottom: 8px;">Join the Android Beta</h2>
-                        <p style="color: var(--text-secondary); font-size: 0.98rem; max-width: 500px; margin: 0 auto;">
-                            SnapHaven for Android is <strong>Coming Soon to Google Play</strong>. Enter your Google account email to join our closed testing list and receive an early access invite link.
+                        <p style="color: var(--text-secondary); font-size: 0.98rem; max-width: 520px; margin: 0 auto;">
+                            SnapHaven for Android is now in active Closed Beta! Follow these 3 quick steps to install and start syncing in under a minute:
                         </p>
                     </div>
 
-                    <form id="sectionBetaForm" class="beta-form-group" onsubmit="handleBetaSubmit(event, 'sectionBetaForm')">
-                        <!-- Honeypot Bot Trap Field (Hidden) -->
-                        <input type="text" name="company_website" style="display:none;" tabindex="-1" autocomplete="off">
-
-                        <input type="hidden" name="platform" value="android">
-                        <div class="beta-input-wrapper">
-                            <input type="email" name="email" class="beta-input" placeholder="you@example.com" required style="width: 100%;">
-                        </div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: -6px;">
-                            💡 Note: Must be the Google Account email signed into your Android phone's Google Play Store.
-                        </div>
-
-                        <!-- Cloudflare Turnstile Invisible Widget -->
-                        <div class="turnstile-wrapper">
-                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAEOjEoEXbao8ibEU" data-theme="dark"></div>
+                    <div class="beta-steps">
+                        <!-- Step 1 -->
+                        <div class="beta-step-item">
+                            <div class="beta-step-info">
+                                <div class="beta-step-badge">1</div>
+                                <div>
+                                    <div class="beta-step-title">Join the Google Group</div>
+                                    <div class="beta-step-desc">Grants your Google account permission to access the beta.</div>
+                                </div>
+                            </div>
+                            <a href="https://groups.google.com/g/snaphaven-beta-testers" target="_blank" rel="noopener noreferrer" class="btn btn-secondary beta-step-btn" style="padding: 10px 18px; font-size: 0.9rem;">
+                                <span>Join Group ↗</span>
+                            </a>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-rainbow" style="width: 100%; padding: 14px; font-size: 1.05rem;" id="sectionBetaSubmitBtn">
-                            <span>🚀 Request Beta Access</span>
-                        </button>
+                        <!-- Step 2 -->
+                        <div class="beta-step-item">
+                            <div class="beta-step-info">
+                                <div class="beta-step-badge">2</div>
+                                <div>
+                                    <div class="beta-step-title">Opt into the Beta</div>
+                                    <div class="beta-step-desc">Click "Become a tester" on Google Play's enrollment portal.</div>
+                                </div>
+                            </div>
+                            <a href="https://play.google.com/apps/testing/app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-secondary beta-step-btn" style="padding: 10px 18px; font-size: 0.9rem;">
+                                <span>Opt In ↗</span>
+                            </a>
+                        </div>
 
-                        <div id="sectionBetaStatus" class="beta-status-msg"></div>
-                    </form>
+                        <!-- Step 3 -->
+                        <div class="beta-step-item">
+                            <div class="beta-step-info">
+                                <div class="beta-step-badge">3</div>
+                                <div>
+                                    <div class="beta-step-title">Download on Google Play</div>
+                                    <div class="beta-step-desc">Install SnapHaven directly onto your Android phone.</div>
+                                </div>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-rainbow beta-step-btn" style="padding: 10px 18px; font-size: 0.9rem;">
+                                <span>Get on Play Store ↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="beta-perk-box">
+                        <span style="font-size: 1.5rem;">🎁</span>
+                        <div>
+                            <strong>Early Tester Perk (First 50 Testers):</strong> Get a <strong>Free Lifetime Pro Promo Code</strong>! Email <a href="mailto:support@snaphaven.app?subject=SnapHaven%20Beta%20Pro%20Code%20Request" style="color: #fde68a; font-weight: 600; text-decoration: underline;">support@snaphaven.app</a> or message in the Google Group after joining to claim yours.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

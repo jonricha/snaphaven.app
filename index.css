@@ -268,6 +268,12 @@ section {
     border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
+.badge-emerald {
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--accent-emerald);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
 /* Hero Section */
 .hero-section {
     padding-top: 170px;
@@ -636,6 +642,89 @@ section {
     color: #7dd3fc;
 }
 
+/* Beta Steps Cards */
+.beta-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+    text-align: left;
+}
+
+.beta-step-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    transition: var(--transition-fast);
+}
+
+.beta-step-item:hover {
+    border-color: var(--border-highlight);
+    background: rgba(30, 41, 59, 0.75);
+}
+
+.beta-step-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.beta-step-badge {
+    background: var(--accent-cyan);
+    color: #07090e;
+    font-weight: 800;
+    font-size: 0.85rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.beta-step-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.beta-step-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.beta-step-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beta-perk-box {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px dashed rgba(245, 158, 11, 0.4);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 0.88rem;
+    color: #fbbf24;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.4;
+    text-align: left;
+}
+
 /* Footer */
 footer {
     padding: 60px 0 30px;
@@ -680,5 +769,17 @@ footer {
     .hero-subtitle { font-size: 1.05rem; }
     section { padding: 60px 0; }
     .beta-input-wrapper { flex-direction: column; }
+}
+
+@media (max-width: 640px) {
+    .beta-step-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .beta-step-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 

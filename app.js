@@ -33,21 +33,51 @@ document.addEventListener('DOMContentLoaded', () => {
         if (platform === 'android') {
             if (icon) icon.innerText = '🤖';
             if (title) title.innerText = 'SnapHaven for Android';
-            if (badge) badge.innerText = 'Coming Soon to Google Play';
-            if (body) body.innerText = 'The SnapHaven Android application is currently in closed testing. Enter your email below to receive an early access invite link via Google Play!';
-            if (platformInput) platformInput.value = 'android';
+            if (badge) {
+                badge.innerText = '🟢 Closed Beta Live';
+                badge.className = 'badge-tag badge-emerald';
+            }
+            if (body) body.innerHTML = `
+                SnapHaven for Android is in active Closed Beta on Google Play! Join in 3 easy steps:<br><br>
+                <div style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
+                    <a href="https://groups.google.com/g/snaphaven-beta-testers" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 14px; font-size: 0.9rem; justify-content: space-between; display: flex;">
+                        <span>1. Join Google Group</span> <span>↗</span>
+                    </a>
+                    <a href="https://play.google.com/apps/testing/app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 14px; font-size: 0.9rem; justify-content: space-between; display: flex;">
+                        <span>2. Opt into Beta</span> <span>↗</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-rainbow" style="padding: 10px 14px; font-size: 0.9rem; justify-content: space-between; display: flex;">
+                        <span>3. Download on Play Store</span> <span>↗</span>
+                    </a>
+                </div>
+                <div style="font-size: 0.82rem; color: #fbbf24; margin-top: 14px; text-align: left;">
+                    🎁 <strong>Early Perk:</strong> First 50 testers receive a Free Lifetime Pro code! Email <a href="mailto:support@snaphaven.app" style="color: #fde68a;">support@snaphaven.app</a> to claim.
+                </div>
+            `;
+            const form = document.getElementById('modalBetaForm');
+            if (form) form.style.display = 'none';
         } else if (platform === 'ios') {
             if (icon) icon.innerText = '🍏';
             if (title) title.innerText = 'SnapHaven for iOS';
-            if (badge) badge.innerText = 'In Active Development';
+            if (badge) {
+                badge.innerText = 'In Active Development';
+                badge.className = 'badge-tag badge-amber';
+            }
             if (body) body.innerText = 'The SnapHaven iOS application is under active development. Enter your email below to join the TestFlight early access list!';
             if (platformInput) platformInput.value = 'ios';
+            const form = document.getElementById('modalBetaForm');
+            if (form) form.style.display = 'block';
         } else {
             if (icon) icon.innerText = '📱';
             if (title) title.innerText = 'SnapHaven Mobile App';
-            if (badge) badge.innerText = 'Closed Beta Open';
+            if (badge) {
+                badge.innerText = 'Closed Beta Open';
+                badge.className = 'badge-tag badge-cyan';
+            }
             if (body) body.innerText = 'Enter your email below to join our mobile beta program!';
             if (platformInput) platformInput.value = platform || 'mobile';
+            const form = document.getElementById('modalBetaForm');
+            if (form) form.style.display = 'block';
         }
 
         if (modal) modal.classList.add('active');
