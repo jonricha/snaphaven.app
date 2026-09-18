@@ -50,6 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span>3. Download on Play Store</span> <span>↗</span>
                     </a>
                 </div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 10px; line-height: 1.3; text-align: left;">
+                    ⏱️ <em>Note: Google Play may take 5–15 minutes to sync your access. If the store page displays "Item not found", please wait a few minutes and try again.</em>
+                </div>
                 <div style="font-size: 0.82rem; color: #fbbf24; margin-top: 14px; text-align: left;">
                     🎁 <strong>Early Perk:</strong> First 50 testers receive a Free Lifetime Pro code! Email <a href="mailto:support@snaphaven.app" style="color: #fde68a;">support@snaphaven.app</a> to claim.
                 </div>
