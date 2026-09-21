@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>SnapHaven User Guide & Knowledge Base — Setup, Android Client & Troubleshooting</title>
+    <meta name="description" content="Complete step-by-step instructions for SnapHaven. Learn how to install the server across Windows, macOS, Linux, and Docker, configure firewall access, use all Android client features, and troubleshoot common issues.">
+    <meta name="keywords" content="SnapHaven guide, setup instructions, private network access, windows firewall photo sync, android photo backup, MTLS pairing, home server photo backup">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snaphaven.app/guide.html">
+    <meta property="og:title" content="SnapHaven User Guide & Knowledge Base">
+    <meta property="og:description" content="In-depth instructions, firewall setup, Android feature tour, and interactive troubleshooting for SnapHaven.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Orbs -->
+    <div class="ambient-glow">
+        <div class="glow-orb-1"></div>
+        <div class="glow-orb-2"></div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png?v=7" alt="SnapHaven Logo" class="brand-icon-img" width="44" height="44">
+                <span>SnapHaven</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="download.html" class="nav-link">Download</a></li>
+                <li><a href="guide.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 600;">User Guide</a></li>
+                <li><a href="index.html#beta-signup" class="nav-link" style="color: var(--accent-emerald);">Android Beta</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="download.html" class="btn btn-primary">
+                    <span>Get SnapHaven</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Guide Hero Section -->
+    <section class="guide-hero">
+        <div class="container">
+            <span class="badge-tag badge-cyan">Documentation &amp; User Manual</span>
+            <h1>Comprehensive <span class="gradient-text">Setup &amp; Feature Guide</span></h1>
+            <p>
+                Everything you need to set up your private photo backup hub, configure your home network access across Windows, macOS, Linux, and Docker, master the Android client, and troubleshoot any edge case.
+            </p>
+        </div>
+    </section>
+
+    <!-- Quick Jump Sticky Sub-Navigation -->
+    <nav class="quick-jump-bar">
+        <div class="container quick-jump-container">
+            <a href="#setup-order" class="quick-jump-link">
+                <span>1️⃣ Setup Order &amp; Install</span>
+            </a>
+            <a href="#network-access" class="quick-jump-link">
+                <span>🛡️ Network &amp; Firewall</span>
+            </a>
+            <a href="#android-features" class="quick-jump-link">
+                <span>📱 Android Client Tour</span>
+            </a>
+            <a href="#troubleshoot-hub" class="quick-jump-link">
+                <span>🛠️ Interactive Troubleshooting</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ================================================================= -->
+        <!-- SECTION 1: Step-by-Step Installation Order                        -->
+        <!-- ================================================================= -->
+        <section id="setup-order" style="padding-bottom: 80px;">
+            <div class="container">
+                <div style="text-align: center; max-width: 760px; margin: 0 auto 40px;">
+                    <span class="badge-tag badge-cyan">Installation Flow</span>
+                    <h2 style="font-size: 2.2rem; margin-top: 10px;">The Recommended Setup Order</h2>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">
+                        Following this sequence ensures your server is broadcasting properly on your local network before connecting your mobile device.
+                    </p>
+                </div>
+
+                <div class="setup-stepper">
+                    <div class="stepper-line"></div>
+
+                    <!-- Step 1: Server Setup -->
+                    <div class="step-card" id="step-1">
+                        <div class="step-badge">1</div>
+                        <div class="step-header">
+                            <div>
+                                <span class="badge-tag badge-cyan" style="font-size: 0.75rem;">Step One</span>
+                                <h3 class="step-title">Install &amp; Launch SnapHaven Server</h3>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                            SnapHaven Server acts as your secure photo vault and certificate authority. It must be installed on the PC or NAS where you want photos stored. Choose your platform below:
+                        </p>
+
+                        <!-- Platform Switcher Tabs -->
+                        <div class="platform-pill-group">
+                            <button class="platform-pill active" data-platform="win">🪟 Windows</button>
+                            <button class="platform-pill" data-platform="mac">🍎 macOS</button>
+                            <button class="platform-pill" data-platform="linux">🐧 Linux</button>
+                            <button class="platform-pill" data-platform="docker">🐳 Docker &amp; NAS</button>
+                        </div>
+
+                        <!-- Platform Panes -->
+                        <div class="platform-pane active" data-platform="win">
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+                                Install via the <strong>Microsoft Store</strong> for silent automatic updates, or install via terminal:
+                            </p>
+                            <div class="guide-code-block" id="cmd-winget">
+                                <span>winget install "SnapHaven Server"</span>
+                                <button class="guide-code-copy-btn" onclick="copySnippet('cmd-winget', this)">Copy</button>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 10px;">
+                                Once installed, launch SnapHaven from your Start Menu. A system tray icon will appear, and your pairing dashboard will open in your default browser at <code>https://127.0.0.1:50005</code>.
+                            </p>
+                        </div>
+
+                        <div class="platform-pane" data-platform="mac">
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+                                Download the Universal App bundle (Apple Silicon M1-M4 &amp; Intel) from the <a href="download.html" style="color: var(--accent-cyan);">Download Page</a>. Extract and clear the quarantine flag if prompted:
+                            </p>
+                            <div class="guide-code-block" id="cmd-mac">
+                                <span>xattr -cr "SnapHaven Server.app" && open "SnapHaven Server.app"</span>
+                                <button class="guide-code-copy-btn" onclick="copySnippet('cmd-mac', this)">Copy</button>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 10px;">
+                                SnapHaven will appear in your top menu bar with a camera emblem.
+                            </p>
+                        </div>
+
+                        <div class="platform-pane" data-platform="linux">
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+                                Install the Debian package and enable the systemd daemon for unattended background sync:
+                            </p>
+                            <div class="guide-code-block" id="cmd-deb">
+                                <span>sudo dpkg -i snaphaven-server_1.0.0_amd64.deb && sudo systemctl enable --now snaphaven-server</span>
+                                <button class="guide-code-copy-btn" onclick="copySnippet('cmd-deb', this)">Copy</button>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 10px;">
+                                Open your web browser to <code>https://localhost:50005</code> or run <code>snaphaven-server open</code>.
+                            </p>
+                        </div>
+
+                        <div class="platform-pane" data-platform="docker">
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+                                For Docker, Synology NAS, Unraid, or TrueNAS, use Docker Compose. We recommend <code>network_mode: host</code> so the mobile app can discover the server automatically over local mDNS:
+                            </p>
+                            <div class="guide-code-block" id="cmd-docker">
+                                <span>docker run -d --name snaphaven-server --net=host -v /your/photos:/data/photos snaphaven/server:latest</span>
+                                <button class="guide-code-copy-btn" onclick="copySnippet('cmd-docker', this)">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Network & Firewall -->
+                    <div class="step-card" id="network-access">
+                        <div class="step-badge">2</div>
+                        <div class="step-header">
+                            <div>
+                                <span class="badge-tag badge-cyan" style="font-size: 0.75rem;">Step Two (Critical)</span>
+                                <h3 class="step-title">Allow Private Network &amp; Firewall Access</h3>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                            Because SnapHaven operates entirely peer-to-peer over your local home Wi-Fi without passing through any external cloud relay, your host operating system's firewall must permit incoming connections from your phone.
+                        </p>
+
+                        <!-- Platform Tabs for Network Configuration -->
+                        <div class="platform-pill-group">
+                            <button class="platform-pill active" data-platform="win-net">🪟 Windows Firewall</button>
+                            <button class="platform-pill" data-platform="mac-net">🍎 macOS Permissions</button>
+                            <button class="platform-pill" data-platform="linux-net">🐧 Linux Ports</button>
+                            <button class="platform-pill" data-platform="docker-net">🐳 Docker &amp; Router</button>
+                        </div>
+
+                        <!-- Windows Net Pane -->
+                        <div class="platform-pane active" data-platform="win-net">
+                            <div class="callout-box callout-warning">
+                                <div class="callout-icon">⚠️</div>
+                                <div>
+                                    <strong>Windows Defender Firewall Prompt:</strong> When running SnapHaven Server for the first time, Windows displays a firewall security alert. You <strong>MUST check the box for "Private networks (such as my home or work network)"</strong>.
+                                </div>
+                            </div>
+                            <ol style="color: var(--text-secondary); font-size: 0.92rem; padding-left: 20px; line-height: 1.7;">
+                                <li>
+                                    <strong>Verify Your Network is Set to "Private":</strong> In Windows 10/11, open <code>Settings &gt; Network &amp; Internet &gt; Wi-Fi (or Ethernet)</code>, click your connected network, and verify the <strong>Network Profile Type</strong> is set to <strong>Private</strong>. If it is set to "Public", Windows blocks incoming local traffic.
+                                </li>
+                                <li>
+                                    <strong>If You Accidentally Clicked Cancel:</strong> Open <em>Windows Defender Firewall with Advanced Security</em> (or search "Allow an app through Windows Firewall"), find <strong>SnapHaven Server</strong>, click <em>Change Settings</em>, and check the <strong>Private</strong> box.
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- macOS Net Pane -->
+                        <div class="platform-pane" data-platform="mac-net">
+                            <div class="callout-box callout-info">
+                                <div class="callout-icon">ℹ️</div>
+                                <div>
+                                    <strong>macOS 15 Sequoia "Local Network" Privacy:</strong> Modern macOS requires explicit permission for local network sockets.
+                                </div>
+                            </div>
+                            <ul style="color: var(--text-secondary); font-size: 0.92rem; padding-left: 20px; line-height: 1.7;">
+                                <li>When macOS prompts: <em>"SnapHaven would like to find and connect to devices on your local network"</em>, click <strong>Allow</strong>.</li>
+                                <li>To double check: Open <code>System Settings &gt; Privacy &amp; Security &gt; Local Network</code> and verify <strong>SnapHaven Server</strong> is toggled ON.</li>
+                                <li>If using the macOS Application Firewall (<code>System Settings &gt; Network &gt; Firewall</code>), ensure SnapHaven is allowed to receive incoming connections.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Linux Net Pane -->
+                        <div class="platform-pane" data-platform="linux-net">
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+                                If you run UFW or Firewalld, allow inbound traffic on TCP port <code>50005</code> and UDP port <code>5353</code> (for mDNS network discovery):
+                            </p>
+                            <div class="guide-code-block" id="cmd-ufw">
+                                <span>sudo ufw allow 50005/tcp comment "SnapHaven Sync" && sudo ufw allow 5353/udp comment "mDNS Discovery"</span>
+                                <button class="guide-code-copy-btn" onclick="copySnippet('cmd-ufw', this)">Copy</button>
+                            </div>
+                        </div>
+
+                        <!-- Docker Net Pane -->
+                        <div class="platform-pane" data-platform="docker-net">
+                            <ul style="color: var(--text-secondary); font-size: 0.92rem; padding-left: 20px; line-height: 1.7;">
+                                <li><strong>Port Mapping:</strong> Ensure port <code>50005:50005</code> is published if running in bridge mode.</li>
+                                <li><strong>mDNS / ZeroConf Discovery:</strong> Because Docker bridge networks isolate multicast traffic, we strongly recommend using <code>network_mode: host</code>. Alternatively, you can enter your server's LAN IP address directly in the mobile client if automatic discovery is unreachable.</li>
+                                <li><strong>Wi-Fi AP Isolation:</strong> Ensure your Wi-Fi router does not have "Client Isolation" or "Guest Network Isolation" enabled, as this blocks phones from reaching LAN PCs.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Mobile Install & Pairing -->
+                    <div class="step-card" id="step-3">
+                        <div class="step-badge">3</div>
+                        <div class="step-header">
+                            <div>
+                                <span class="badge-tag badge-cyan" style="font-size: 0.75rem;">Step Three</span>
+                                <h3 class="step-title">Install Android App &amp; Pair via mTLS</h3>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                            With the server running and accessible on your Wi-Fi network, pairing your phone takes just one camera scan.
+                        </p>
+
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 16px;">
+                            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px;">
+                                <h4 style="color: var(--accent-cyan); margin-bottom: 8px;">1. Install SnapHaven Mobile</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">
+                                    Install SnapHaven on your phone (<a href="index.html#beta-signup" style="color: var(--accent-emerald);">Android Beta link available on Google Play</a>).
+                                </p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">
+                                    Upon first launch, accept the requested <strong>Media &amp; Photos permission</strong> (to scan for photos) and <strong>Notification permission</strong> (required by Android for reliable background sync service).
+                                </p>
+                            </div>
+
+                            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px;">
+                                <h4 style="color: var(--accent-cyan); margin-bottom: 8px;">2. Scan the Server Pairing QR Code</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">
+                                    In the mobile app, tap <strong>"Scan Server QR Code"</strong>. Point your camera at the QR code displayed on your computer's SnapHaven dashboard (<code>https://127.0.0.1:50005</code>).
+                                </p>
+                                <div class="callout-box callout-success" style="margin: 10px 0 0;">
+                                    <div class="callout-icon">🔒</div>
+                                    <div>
+                                        <strong>Under the Hood:</strong> Scanning this code performs a zero-configuration cryptographic handshake. The server generates a unique X.509 client certificate and exchanges TLS 1.3 keys. No passwords or accounts are stored anywhere.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- SECTION 2: Android Client Feature Deep Dive                       -->
+        <!-- ================================================================= -->
+        <section id="android-features" style="padding: 80px 0; background: rgba(15, 23, 42, 0.3); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+            <div class="container features-container">
+                <div style="text-align: center; max-width: 760px; margin: 0 auto 30px;">
+                    <span class="badge-tag badge-emerald">Android Client Overview</span>
+                    <h2 style="font-size: 2.3rem; margin-top: 10px;">Mastering the Mobile App</h2>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">
+                        Explore all the powerful background synchronization triggers, custom folder pickers, and live diagnostics built into the SnapHaven Android app.
+                    </p>
+                </div>
+
+                <!-- Feature Split Showcase 1: Home & Sync Engine -->
+                <div class="feature-split-layout">
+                    <div>
+                        <div class="feature-badge-row">
+                            <span class="badge-tag badge-cyan">Core Engine</span>
+                        </div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Real-Time Dashboard &amp; Instant Sync</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 18px;">
+                            The main screen gives you immediate transparency into your backup state. Watch files synchronize in real time with byte-level progress bars and transfer speeds.
+                        </p>
+                        <ul class="feature-specs-list">
+                            <li><span class="bullet">✓</span> <strong>One-Tap Sync Now:</strong> Immediately flush newly taken photos to your server without waiting for scheduled triggers.</li>
+                            <li><span class="bullet">✓</span> <strong>Smart Deduplication:</strong> SnapHaven computes cryptographic hashes before transfer, ensuring identical files are never uploaded or duplicated twice.</li>
+                            <li><span class="bullet">✓</span> <strong>Server Connection Pill:</strong> Instant visual feedback showing whether your home PC or NAS is reachable on your current network.</li>
+                        </ul>
+                    </div>
+                    <div class="phone-mockup-wrapper">
+                        <img src="phone_screenshot_1_home.png" alt="SnapHaven Android Home Screen" class="phone-mockup-img">
+                    </div>
+                </div>
+
+                <!-- Feature Split Showcase 2: Settings & Constraints -->
+                <div class="feature-split-layout" style="margin-top: 40px;">
+                    <div class="phone-mockup-wrapper" style="order: 2;">
+                        <img src="phone_screenshot_2_settings.png" alt="SnapHaven Android Settings Screen" class="phone-mockup-img">
+                    </div>
+                    <div style="order: 1;">
+                        <div class="feature-badge-row">
+                            <span class="badge-tag badge-amber">Automation Rules</span>
+                        </div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Smart Triggers &amp; Battery Respect</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 18px;">
+                            SnapHaven runs silently in the background using Android's native <code>WorkManager</code> API. You have full control over when sync operations are allowed to execute:
+                        </p>
+                        <ul class="feature-specs-list">
+                            <li><span class="bullet">⚡</span> <strong>Charging-Only Sync:</strong> Protect your daily battery life by restricting automatic heavy 4K video backups to when your phone is plugged in overnight.</li>
+                            <li><span class="bullet">📶</span> <strong>Wi-Fi Only Constraint:</strong> Completely disable mobile data transfers to prevent exhausting your cellular data plan.</li>
+                            <li><span class="bullet">⏰</span> <strong>Custom Schedule Window:</strong> Set your preferred sync time (e.g. 02:00 AM) so backups happen while you sleep.</li>
+                            <li><span class="bullet">🔋</span> <strong>Adaptive Foreground Service:</strong> Employs an efficient foreground service notification that satisfies Android 13+ background execution rules without draining your standby battery.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature Split Showcase 3: Folder Picker -->
+                <div class="feature-split-layout" style="margin-top: 40px;">
+                    <div>
+                        <div class="feature-badge-row">
+                            <span class="badge-tag badge-cyan">Granular Control</span>
+                        </div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Selective Folder &amp; Album Backup</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 18px;">
+                            You don't have to sync junk folders. Select exactly which albums and storage directories are included in your private backup:
+                        </p>
+                        <ul class="feature-specs-list">
+                            <li><span class="bullet">📸</span> <strong>Camera (DCIM):</strong> Full original resolution photos, RAW files, dynamic motion photos, and 4K/60fps videos.</li>
+                            <li><span class="bullet">📱</span> <strong>Screenshots &amp; Screen Recordings:</strong> Choose whether to preserve or exclude your screenshots folder.</li>
+                            <li><span class="bullet">💬</span> <strong>App Media:</strong> Easily toggle backup for WhatsApp, Telegram, Signal, and Downloads directories.</li>
+                            <li><span class="bullet">📂</span> <strong>Custom Local Folders:</strong> Add any custom storage directory on internal storage or microSD cards.</li>
+                        </ul>
+                    </div>
+                    <div class="phone-mockup-wrapper">
+                        <img src="phone_screenshot_3_folders.png" alt="SnapHaven Android Folder Selection" class="phone-mockup-img">
+                    </div>
+                </div>
+
+                <!-- Feature Grid: Diagnostics & Log Engine -->
+                <div class="feature-showcase-grid">
+                    <div class="feature-deep-card">
+                        <div>
+                            <div class="feature-badge-row">
+                                <span class="badge-tag badge-emerald">Transparency</span>
+                            </div>
+                            <h3>In-App Audit &amp; Event Logs</h3>
+                            <p>
+                                SnapHaven maintains a local, tamper-proof SQLite event log in the app. If a file fails to transfer or a network disconnection occurs, every event is recorded with millisecond timestamps and clear human-readable explanations.
+                            </p>
+                        </div>
+                        <ul class="feature-specs-list">
+                            <li><span class="bullet">•</span> Filter logs by Info, Warnings, and Network Errors</li>
+                            <li><span class="bullet">•</span> View exact file paths and byte transfer rates</li>
+                            <li><span class="bullet">•</span> Export diagnostic logs for easy support without exposing private photo data</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-deep-card">
+                        <div>
+                            <div class="feature-badge-row">
+                                <span class="badge-tag badge-cyan">Network Tool</span>
+                            </div>
+                            <h3>Built-in Network Diagnostics</h3>
+                            <p>
+                                Unsure why your server isn't connecting? The built-in Diagnostics tool automatically probes local mDNS responders, verifies socket availability on port 50005, and checks certificate validity.
+                            </p>
+                        </div>
+                        <ul class="feature-specs-list">
+                            <li><span class="bullet">•</span> Auto-detects server LAN IP and broadcast hostname</li>
+                            <li><span class="bullet">•</span> Fallback manual IP entry for segregated subnets or VLANs</li>
+                            <li><span class="bullet">•</span> Verifies mutual TLS certificate expiration and validity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- SECTION 3: Interactive Troubleshooting Hub & Drill-Down FAQ      -->
+        <!-- ================================================================= -->
+        <section id="troubleshoot-hub" style="padding: 90px 0;">
+            <div class="container troubleshoot-hub">
+                <div style="text-align: center; max-width: 760px; margin: 0 auto 36px;">
+                    <span class="badge-tag badge-cyan">Interactive Knowledge Base</span>
+                    <h2 style="font-size: 2.3rem; margin-top: 10px;">Troubleshooting &amp; FAQs</h2>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">
+                        Search for specific issues or filter by topic to find instant solutions for network, battery, and pairing challenges.
+                    </p>
+                </div>
+
+                <!-- Live Search Box -->
+                <div class="search-box-container">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="guideSearchInput" class="guide-search-input" placeholder="Search issues (e.g., 'firewall', 'battery', 'docker', 'samsung', 'qr')...">
+                    <button id="searchClearBtn" class="search-clear-btn" title="Clear search">&times;</button>
+                </div>
+
+                <!-- Category Filter Pills -->
+                <div class="filter-pills-row">
+                    <button class="category-filter-btn active" data-category="all">All Topics</button>
+                    <button class="category-filter-btn" data-category="network">🌐 Network &amp; Firewall</button>
+                    <button class="category-filter-btn" data-category="battery">🔋 Android Battery &amp; Background</button>
+                    <button class="category-filter-btn" data-category="security">🔐 Pairing &amp; Security</button>
+                    <button class="category-filter-btn" data-category="storage">📁 Storage &amp; Folders</button>
+                </div>
+
+                <!-- Zero Results Notice -->
+                <div id="noResultsMsg" class="no-results-box">
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">🔍</div>
+                    <div style="font-size: 1.1rem; color: #fff; margin-bottom: 6px;">No matching troubleshooting guides found</div>
+                    <p>Try searching for a different keyword or switch to "All Topics".</p>
+                </div>
+
+                <!-- Accordion Knowledge Base Items -->
+                <div class="accordion-list" id="accordionList">
+
+                    <!-- ITEM 1: Windows Firewall -->
+                    <div class="accordion-item" id="firewall" data-category="network">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>🪟</span>
+                                <span>Allowing SnapHaven Server through Windows Defender Firewall</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                If your mobile app says <em>"Server not found"</em> or pairing times out, the most common cause is the Windows Firewall blocking incoming traffic on port <code>50005</code> or treating your home Wi-Fi as a "Public" network.
+                            </p>
+                            <h4>How to fix:</h4>
+                            <ol>
+                                <li><strong>Check Network Profile:</strong> Open Windows <code>Settings &gt; Network &amp; Internet &gt; Wi-Fi</code>, click your network name, and make sure the <strong>Network Profile Type</strong> is set to <strong>Private network</strong>.</li>
+                                <li><strong>Allow App through Firewall:</strong> Press <kbd>Win + R</kbd>, type <code>control firewall.cpl</code> and press Enter. Click <em>"Allow an app or feature through Windows Defender Firewall"</em> on the left menu.</li>
+                                <li>Click <strong>Change settings</strong>, find <strong>SnapHaven Server</strong> in the list, and ensure the <strong>Private</strong> checkbox is checked. If it is not listed, click <em>Allow another app</em> and browse to SnapHaven's executable.</li>
+                                <li>Restart SnapHaven Server from the system tray.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2: macOS Sequoia Local Network -->
+                    <div class="accordion-item" id="macos-local-network" data-category="network">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>🍎</span>
+                                <span>macOS 15 Sequoia "Local Network" permission &amp; Gatekeeper</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Starting in macOS 15 Sequoia, Apple introduced a new privacy permission requiring explicit consent for apps to communicate across your local network.
+                            </p>
+                            <ul>
+                                <li><strong>Local Network Permission:</strong> Open <code>System Settings &gt; Privacy &amp; Security &gt; Local Network</code> and make sure <strong>SnapHaven Server</strong> is enabled.</li>
+                                <li><strong>Gatekeeper Quarantine:</strong> If you downloaded the <code>.tar.gz</code> bundle and macOS displays a warning that the app cannot be opened because it is from an unidentified developer, right-click the app in Finder and choose <strong>Open</strong>, or run <code>xattr -cr "SnapHaven Server.app"</code> in Terminal.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3: Linux UFW / Firewalld -->
+                    <div class="accordion-item" id="linux-firewall" data-category="network">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>🐧</span>
+                                <span>Linux: Opening port 50005 in UFW &amp; checking systemd service</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                If you are running SnapHaven Server on Ubuntu, Debian, Fedora, or Arch Linux with an active firewall:
+                            </p>
+                            <div class="guide-code-block" id="cmd-linux-troubleshoot">
+                                <span>sudo ufw allow 50005/tcp && sudo systemctl status snaphaven-server</span>
+                                <button class="guide-code-copy-btn" onclick="copySnippet('cmd-linux-troubleshoot', this)">Copy</button>
+                            </div>
+                            <p>
+                                For Fedora/RHEL systems using <code>firewalld</code>:
+                            </p>
+                            <div class="guide-code-block" id="cmd-firewalld">
+                                <span>sudo firewall-cmd --permanent --add-port=50005/tcp && sudo firewall-cmd --reload</span>
+                                <button class="guide-code-copy-btn" onclick="copySnippet('cmd-firewalld', this)">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 4: Docker & NAS mDNS Discovery -->
+                    <div class="accordion-item" id="docker-networking" data-category="network">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>🐳</span>
+                                <span>Docker &amp; NAS: Server discovery across bridge networks vs host mode</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                By default, Docker runs containers on an isolated bridge network (e.g. <code>172.17.0.0/16</code>). While mapping port <code>-p 50005:50005</code> allows direct TCP communication, UDP multicast discovery (mDNS on <code>5353/udp</code>) does not cross the Docker bridge.
+                            </p>
+                            <p><strong>Recommended Solution:</strong></p>
+                            <ul>
+                                <li>Use <code>network_mode: host</code> in your <code>docker-compose.yml</code> so the container shares your host's network stack directly.</li>
+                                <li>If host networking cannot be used (e.g. on Synology Container Manager or macOS Docker Desktop), open the SnapHaven mobile app, tap <em>Diagnostics / Manual Setup</em>, and enter your NAS's static LAN IP address (e.g. <code>192.168.1.150:50005</code>).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 5: Wi-Fi AP Isolation -->
+                    <div class="accordion-item" id="ap-isolation" data-category="network">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>📡</span>
+                                <span>Router "Client Isolation" or Guest Wi-Fi blocking connections</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                If your phone and server are connected to the same Wi-Fi router but cannot communicate, your router may have <strong>AP Isolation</strong>, <strong>Client Isolation</strong>, or <strong>Station Isolation</strong> enabled.
+                            </p>
+                            <ul>
+                                <li><strong>Guest Networks:</strong> Most routers automatically isolate all guest Wi-Fi devices so they can only access the internet, not other local machines. Make sure both your phone and PC are connected to your main home Wi-Fi network, not the Guest SSID.</li>
+                                <li><strong>Mesh Systems (Eero, Orbi, Google Nest Wi-Fi):</strong> If your PC is plugged into an upstream ISP modem/router and your phone is on a downstream mesh satellite, they may be on different subnets (e.g. <code>192.168.1.x</code> vs <code>192.168.86.x</code>). Place your ISP modem in Bridge Mode or connect both devices to the same mesh network.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 6: Android Battery Optimization (Samsung, Xiaomi, Pixel) -->
+                    <div class="accordion-item" id="battery-optimization" data-category="battery">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>🔋</span>
+                                <span>Preventing Android from sleeping background sync (Samsung, Xiaomi, Pixel)</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Some phone manufacturers (notably Samsung, Xiaomi, and OnePlus) enforce aggressive power-saving systems that terminate background services when your screen is locked.
+                            </p>
+                            <h4>Device-Specific Fixes:</h4>
+                            <ul>
+                                <li><strong>Samsung One UI:</strong> Open <code>Settings &gt; Apps &gt; SnapHaven &gt; Battery</code> and select <strong>"Unrestricted"</strong> (not Optimized). Also check <code>Settings &gt; Battery &gt; Background usage limits</code> and ensure SnapHaven is NOT in "Sleeping apps" or "Deep sleeping apps".</li>
+                                <li><strong>Google Pixel:</strong> Open <code>Settings &gt; Apps &gt; SnapHaven &gt; App battery usage</code> and change from "Optimized" to <strong>"Unrestricted"</strong>.</li>
+                                <li><strong>Xiaomi / MIUI / HyperOS:</strong> Open <code>Settings &gt; Apps &gt; Manage Apps &gt; SnapHaven</code>. Enable <strong>Autostart</strong>, and set <strong>Battery saver</strong> to <strong>No restrictions</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 7: Persistent Notification -->
+                    <div class="accordion-item" id="foreground-notification" data-category="battery">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>🔔</span>
+                                <span>Why is there a persistent "SnapHaven Background Service" notification?</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                On Android 8.0 and above, the Android operating system terminates any app running in the background unless it runs as an official <strong>Foreground Service</strong> with a user-visible notification.
+                            </p>
+                            <p>
+                                SnapHaven uses this service to ensure that large 4K video uploads are not killed mid-transfer when your screen turns off. 
+                            </p>
+                            <p>
+                                💡 <em>Can I hide it?</em> Yes! You can long-press the notification on your phone, tap <strong>Settings</strong> (or the gear icon), and toggle off the specific "Background Sync Status" notification channel. The service will still run with zero interruption.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 8: Pairing & Certificate Management -->
+                    <div class="accordion-item" id="mtls-pairing" data-category="security">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>🔑</span>
+                                <span>Can I pair multiple family phones to the same server?</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                <strong>Yes!</strong> SnapHaven Server supports pairing unlimited family mobile devices to the same server. 
+                            </p>
+                            <p>
+                                Any family device on your home Wi-Fi can open the SnapHaven mobile app and scan the QR code displayed on the server dashboard. Each scan performs an automated mutual TLS (mTLS) handshake, issuing a distinct client certificate signed by your server's local Certificate Authority (CA).
+                            </p>
+                            <p>
+                                <strong>Resetting pairings:</strong> Because SnapHaven is completely decentralized and keeps zero cloud records, all certificates are stored locally on your machine in the server's <code>certs/</code> directory. If you ever need to reset all client connections, clearing the certificates directory and restarting the server will generate a fresh CA and require devices to re-scan the QR code.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 9: Storage Organization & Duplicates -->
+                    <div class="accordion-item" id="storage-organization" data-category="storage">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-icon-title">
+                                <span>📁</span>
+                                <span>Where are photos saved and how are duplicates handled?</span>
+                            </span>
+                            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                By default, SnapHaven saves photos into a dedicated <code>snaphaven</code> directory inside your user profile:
+                            </p>
+                            <ul>
+                                <li><strong>Windows:</strong> <code>%USERPROFILE%\snaphaven</code> (e.g. <code>C:\Users\&lt;Username&gt;\snaphaven</code>)</li>
+                                <li><strong>macOS:</strong> <code>~/snaphaven</code> (e.g. <code>/Users/&lt;Username&gt;/snaphaven</code>)</li>
+                                <li><strong>Linux:</strong> <code>~/snaphaven</code> (e.g. <code>/home/&lt;Username&gt;/snaphaven</code>)</li>
+                                <li><strong>Docker / NAS:</strong> The host folder you mount to container path <code>/data/photos</code></li>
+                            </ul>
+                            <p>
+                                💡 <strong>Changing Your Storage Folder:</strong> You can point SnapHaven to an external hard drive, secondary SSD, or custom path anytime. Open the Server Dashboard at <code>https://127.0.0.1:50005</code>, go to the <strong>Settings</strong> tab, update the <em>"Sync Storage Folder Path"</em>, and click <strong>Save &amp; Restart Server</strong>.
+                            </p>
+                            <h4 style="margin-top: 14px; margin-bottom: 6px; color: var(--text-primary);">Organization &amp; Deduplication:</h4>
+                            <ul>
+                                <li><strong>Byte-for-Byte Preservation:</strong> Files are saved in their exact raw binary format, preserving EXIF metadata, GPS geotags, camera lens data, and original video bitrates.</li>
+                                <li><strong>Deduplication:</strong> If you move photos or reinstall the mobile app, SnapHaven performs a SHA-256 hash comparison. It will never overwrite or re-download photos that already exist in your vault.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="padding: 60px 0 100px; text-align: center;">
+            <div class="container">
+                <div class="glass-card" style="max-width: 800px; margin: 0 auto; padding: 48px 32px; border-color: var(--border-highlight);">
+                    <h2 style="font-size: 2rem; margin-bottom: 12px;">Ready to Take Back Control?</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                        Download SnapHaven Server today and set up your private, subscription-free photo backup in less than five minutes.
+                    </p>
+                    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                        <a href="download.html" class="btn btn-primary btn-rainbow" style="padding: 14px 28px;">
+                            <span>Download SnapHaven Server</span>
+                        </a>
+                        <a href="index.html#beta-signup" class="btn btn-secondary" style="padding: 14px 28px; border-color: var(--accent-emerald); color: var(--accent-emerald);">
+                            <span>Join Android Beta</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div>
+                <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">SnapHaven</div>
+                <div>© 2026 SnapHaven. Registered domain <a href="https://snaphaven.app" style="color: var(--accent-cyan); text-decoration: none;">snaphaven.app</a></div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="guide.html" class="footer-link" style="color: var(--accent-cyan);">User Guide</a>
+                <a href="download.html" class="footer-link">Download Server</a>
+                <a href="index.html#beta-signup" class="footer-link">Join Android Beta</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="THIRD_PARTY_NOTICES.txt" target="_blank" class="footer-link">Open Source Licenses</a>
+                <a href="https://github.com/jonricha/snaphaven-server" target="_blank" class="footer-link">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="guide.js"></script>
+</body>
+</html>
