@@ -131,7 +131,7 @@
                                 <button class="guide-code-copy-btn" onclick="copySnippet('cmd-winget', this)">Copy</button>
                             </div>
                             <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 10px;">
-                                Once installed, launch SnapHaven from your Start Menu. A system tray icon will appear, and your pairing dashboard will open in your default browser at <code>https://127.0.0.1:50005</code>.
+                                Once installed, launch SnapHaven from your Start Menu. A system tray icon will appear, and your pairing dashboard will open in your default browser at <code>http://127.0.0.1:50005</code>.
                             </p>
                         </div>
 
@@ -157,18 +157,21 @@
                                 <button class="guide-code-copy-btn" onclick="copySnippet('cmd-deb', this)">Copy</button>
                             </div>
                             <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 10px;">
-                                Open your web browser to <code>https://localhost:50005</code> or run <code>snaphaven-server open</code>.
+                                Open your web browser to <code>http://localhost:50005</code>, run <code>snaphaven-server open</code>, or print the pairing QR code directly in your terminal with <code>snaphaven-server qr</code>.
                             </p>
                         </div>
 
                         <div class="platform-pane" data-platform="docker">
                             <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
-                                For Docker, Synology NAS, Unraid, or TrueNAS, use Docker Compose. We recommend <code>network_mode: host</code> so the mobile app can discover the server automatically over local mDNS:
+                                For Docker, Synology NAS, Unraid, or TrueNAS, use Docker Compose or Docker CLI. Publish port <code>50005:50005</code> or use <code>network_mode: host</code> for automatic mDNS local discovery:
                             </p>
                             <div class="guide-code-block" id="cmd-docker">
-                                <span>docker run -d --name snaphaven-server --net=host -v /your/photos:/data/photos snaphaven/server:latest</span>
+                                <span>docker run -d --name snaphaven-server -p 50005:50005 -v /your/photos:/data/photos snaphaven/server:latest</span>
                                 <button class="guide-code-copy-btn" onclick="copySnippet('cmd-docker', this)">Copy</button>
                             </div>
+                            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 10px;">
+                                💡 <strong>Headless / Terminal Pairing:</strong> View the live QR code anytime with <code>docker logs snaphaven-server</code> or <code>snaphaven-server qr</code>, or open <code>http://&lt;NAS-IP&gt;:50005</code> in your browser.
+                            </p>
                         </div>
                     </div>
 
@@ -274,7 +277,7 @@
                             <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px;">
                                 <h4 style="color: var(--accent-cyan); margin-bottom: 8px;">2. Scan the Server Pairing QR Code</h4>
                                 <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">
-                                    In the mobile app, tap <strong>"Scan Server QR Code"</strong>. Point your camera at the QR code displayed on your computer's SnapHaven dashboard (<code>https://127.0.0.1:50005</code>).
+                                    In the mobile app, tap <strong>"Scan Server QR Code"</strong>. Point your camera at the QR code displayed on your computer or NAS dashboard (<code>http://127.0.0.1:50005</code> or in terminal logs via <code>snaphaven-server qr</code>).
                                 </p>
                                 <div class="callout-box callout-success" style="margin: 10px 0 0;">
                                     <div class="callout-icon">🔒</div>
@@ -687,7 +690,7 @@
                                 <li><strong>Docker / NAS:</strong> The host folder you mount to container path <code>/data/photos</code></li>
                             </ul>
                             <p>
-                                💡 <strong>Changing Your Storage Folder:</strong> You can point SnapHaven to an external hard drive, secondary SSD, or custom path anytime. Open the Server Dashboard at <code>https://127.0.0.1:50005</code>, go to the <strong>Settings</strong> tab, update the <em>"Sync Storage Folder Path"</em>, and click <strong>Save &amp; Restart Server</strong>.
+                                💡 <strong>Changing Your Storage Folder:</strong> You can point SnapHaven to an external hard drive, secondary SSD, or custom path anytime. Open the Server Dashboard at <code>http://127.0.0.1:50005</code>, go to the <strong>Settings</strong> tab, update the <em>"Sync Storage Folder Path"</em>, and click <strong>Save &amp; Restart Server</strong>.
                             </p>
                             <h4 style="margin-top: 14px; margin-bottom: 6px; color: var(--text-primary);">Organization &amp; Deduplication:</h4>
                             <ul>

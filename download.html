@@ -347,7 +347,7 @@ sudo systemctl enable --now snaphaven-server
 snaphaven-server open</div>
 
                         <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
-                            💡 <strong>Access Dashboard &amp; Pairing QR Code</strong>: Click <strong>SnapHaven Server</strong> in your desktop application grid or run <code>snaphaven-server open</code> in terminal.
+                            💡 <strong>Access Dashboard &amp; Pairing QR Code</strong>: Click <strong>SnapHaven Server</strong> in your desktop application grid, open your browser to <code>http://localhost:50005</code>, run <code>snaphaven-server open</code>, or print the pairing QR code directly in your terminal with <code>snaphaven-server qr</code>.
                         </p>
 
                         <div style="font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Go Source Installation:</div>
@@ -376,6 +376,10 @@ services:
     restart: unless-stopped
     ports:
       - "50005:50005"
+    environment:
+      - HEADLESS=true
+      - SNAP_DIR=/data/photos
+      - SNAP_PORT=:50005
     volumes:
       - /path/to/your/photos:/data/photos
       - ./config:/config</div>
@@ -386,8 +390,20 @@ services:
   --name snaphaven-server \
   --restart unless-stopped \
   -p 50005:50005 \
+  -e HEADLESS=true \
+  -e SNAP_DIR=/data/photos \
   -v /path/to/your/photos:/data/photos \
+  -v ./config:/config \
   snaphaven/server:latest</div>
+
+                        <div style="margin-top: 24px; background: rgba(56, 189, 248, 0.06); border: 1px solid var(--border-highlight); border-radius: var(--radius-md); padding: 18px;">
+                            <div style="font-weight: 600; color: #38bdf8; margin-bottom: 8px;">💡 Headless Pairing &amp; Terminal QR Codes</div>
+                            <ul style="color: var(--text-secondary); font-size: 0.9rem; margin: 0; padding-left: 20px; line-height: 1.6;">
+                                <li><strong>Terminal QR Display:</strong> View your live pairing QR code right in container logs with <code>docker logs snaphaven-server</code> or via SSH with <code>docker exec -it snaphaven-server snaphaven-server qr</code>.</li>
+                                <li><strong>Web Dashboard:</strong> Open <code>http://&lt;NAS-IP&gt;:50005</code> from any computer on your Wi-Fi to view pairing status and manage storage settings.</li>
+                                <li><strong>Automatic Port Resilience:</strong> If port 50005 is occupied on your host, SnapHaven automatically hunts the next available port and announces it over local mDNS.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
