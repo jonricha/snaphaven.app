@@ -371,7 +371,7 @@ go run .</div>
 <button class="copy-btn" onclick="copyCode('code-compose')">Copy</button>version: '3.8'
 services:
   snaphaven:
-    image: snaphaven/server:latest
+    image: ghcr.io/jonricha/snaphaven-server:latest
     container_name: snaphaven-server
     restart: unless-stopped
     ports:
@@ -394,7 +394,7 @@ services:
   -e SNAP_DIR=/data/photos \
   -v /path/to/your/photos:/data/photos \
   -v ./config:/config \
-  snaphaven/server:latest</div>
+  ghcr.io/jonricha/snaphaven-server:latest</div>
 
                         <div style="margin-top: 24px; background: rgba(56, 189, 248, 0.06); border: 1px solid var(--border-highlight); border-radius: var(--radius-md); padding: 18px;">
                             <div style="font-weight: 600; color: #38bdf8; margin-bottom: 8px;">💡 Headless Pairing &amp; Terminal QR Codes</div>

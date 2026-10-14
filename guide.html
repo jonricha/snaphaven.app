@@ -166,7 +166,7 @@
                                 For Docker, Synology NAS, Unraid, or TrueNAS, use Docker Compose or Docker CLI. Publish port <code>50005:50005</code> or use <code>network_mode: host</code> for automatic mDNS local discovery:
                             </p>
                             <div class="guide-code-block" id="cmd-docker">
-                                <span>docker run -d --name snaphaven-server -p 50005:50005 -v /your/photos:/data/photos snaphaven/server:latest</span>
+                                <span>docker run -d --name snaphaven-server -p 50005:50005 -v /your/photos:/data/photos ghcr.io/jonricha/snaphaven-server:latest</span>
                                 <button class="guide-code-copy-btn" onclick="copySnippet('cmd-docker', this)">Copy</button>
                             </div>
                             <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 10px;">
