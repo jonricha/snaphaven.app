@@ -56,7 +56,7 @@
                 Privacy Policy
             </h1>
             <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px;">
-                Effective Date: August 29, 2026
+                Effective Date: October 31, 2026
             </p>
 
             <div style="display: flex; flex-direction: column; gap: 32px; color: var(--text-secondary); line-height: 1.7;">
@@ -75,7 +75,22 @@
 
                 <section class="glass-card" style="padding: 28px; border-radius: 16px;">
                     <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
-                        2. Website Data Collection
+                        2. Mobile Application Permissions & Location Data
+                    </h2>
+                    <p style="margin-bottom: 12px;">
+                        The SnapHaven Android application requests access to device <strong>Location data (including foreground and background location)</strong> solely to support optional Wi-Fi network filtering for automatic backup:
+                    </p>
+                    <ul style="padding-left: 24px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Purpose of Location Access:</strong> On Android (Android 8.1 and higher), the Android operating system enforces strict security controls that require apps to hold <code>ACCESS_FINE_LOCATION</code> and <code>ACCESS_BACKGROUND_LOCATION</code> permissions in order to obtain the connected Wi-Fi Network Name (SSID). SnapHaven uses this permission exclusively to read your currently connected Wi-Fi network name so that automatic background backups only execute when you are connected to your designated, trusted Wi-Fi networks (such as your home Wi-Fi).</li>
+                        <li><strong>No GPS or Geographic Tracking:</strong> SnapHaven does <em>not</em> access, monitor, log, or track your GPS coordinates, physical location, or travel history.</li>
+                        <li><strong>No Off-Device Transmission or Third-Party Sharing:</strong> Wi-Fi SSID verification is conducted strictly on-device in temporary memory. Your location data and network details are never transmitted off your device, never sent to external cloud servers, and never sold or shared with any third party, analytics provider, or advertiser.</li>
+                        <li><strong>Retention & Revocation:</strong> Location data is never stored or retained. You can disable Wi-Fi network restriction settings or revoke location permissions at any time via Android System Settings or within the SnapHaven app preferences without affecting manual sync functionality.</li>
+                    </ul>
+                </section>
+
+                <section class="glass-card" style="padding: 28px; border-radius: 16px;">
+                    <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
+                        3. Website Data Collection
                     </h2>
                     <p style="margin-bottom: 12px;">
                         When visiting our website (<strong>snaphaven.app</strong>):
@@ -88,7 +103,7 @@
 
                 <section class="glass-card" style="padding: 28px; border-radius: 16px;">
                     <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
-                        3. Code Signing & Security Transparency
+                        4. Code Signing & Security Transparency
                     </h2>
                     <p style="margin-bottom: 12px;">
                         SnapHaven server executables and installers are compiled directly from open-source source code via automated GitHub Actions CI/CD workflows. Every release includes SHA256 checksums so you can independently verify binary integrity.
@@ -97,7 +112,7 @@
 
                 <section class="glass-card" style="padding: 28px; border-radius: 16px;">
                     <h2 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">
-                        4. Contact Information
+                        5. Contact Information
                     </h2>
                     <p>
                         If you have questions about this Privacy Policy or your data privacy, please open an issue on our official <a href="https://github.com/jonricha/snaphaven-server" target="_blank" style="color: var(--accent-cyan);">GitHub Repository</a> or contact us at <a href="mailto:support@snaphaven.app" style="color: var(--accent-cyan);">support@snaphaven.app</a>.
