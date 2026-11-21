@@ -69,6 +69,9 @@
                     <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="badge-tag badge-emerald" style="cursor: pointer; border: none; font-family: inherit; text-decoration: none;">
                         <span>🟢 Now Live on Google Play</span>
                     </a>
+                    <a href="#android-app" class="badge-tag badge-amber" style="cursor: pointer; border: none; font-family: inherit; text-decoration: none;">
+                        <span>🍏 iOS Coming Soon</span>
+                    </a>
                 </div>
                 
                 <h1 class="hero-title">
@@ -87,6 +90,9 @@
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 16px 28px; font-size: 1.05rem; border-color: var(--accent-emerald); color: var(--accent-emerald); text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
                         <span>🤖 Get Android App on Google Play ↗</span>
+                    </a>
+                    <a href="#android-app" class="btn btn-secondary" style="padding: 16px 28px; font-size: 1.05rem; border-color: var(--accent-amber); color: var(--accent-amber); text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                        <span>🍏 iOS App — Coming Soon</span>
                     </a>
                 </div>
 
@@ -212,19 +218,38 @@
             </div>
         </section>
 
-        <!-- Dedicated Android App Download Section -->
+        <!-- Mobile Apps Download & Coming Soon Section -->
         <section id="android-app">
             <div class="container">
-                <div class="beta-card">
-                    <div style="text-align: center;">
-                        <span class="badge-tag badge-emerald">Live on Google Play</span>
-                        <h2 style="font-size: 2.2rem; margin-top: 12px; margin-bottom: 8px;">Get SnapHaven for Android</h2>
-                        <p style="color: var(--text-secondary); font-size: 0.98rem; max-width: 520px; margin: 0 auto 28px;">
-                            Download the official SnapHaven Android app directly from Google Play and start syncing full-resolution photos to your home server in under a minute.
-                        </p>
-                        <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-rainbow" style="padding: 16px 32px; font-size: 1.05rem; display: inline-flex; align-items: center; justify-content: center;">
-                            <span>🤖 Download on Google Play ↗</span>
-                        </a>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px;">
+                    <div class="beta-card" style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+                        <div>
+                            <span class="badge-tag badge-emerald">Live on Google Play</span>
+                            <h2 style="font-size: 2rem; margin-top: 12px; margin-bottom: 8px;">Get SnapHaven for Android</h2>
+                            <p style="color: var(--text-secondary); font-size: 0.98rem; max-width: 480px; margin: 0 auto 28px;">
+                                Download the official SnapHaven Android app directly from Google Play and start syncing full-resolution photos to your home server in under a minute.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-rainbow" style="padding: 16px 32px; font-size: 1.05rem; display: inline-flex; align-items: center; justify-content: center;">
+                                <span>🤖 Download on Google Play ↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="beta-card" style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+                        <div>
+                            <span class="badge-tag badge-amber">Coming Soon</span>
+                            <h2 style="font-size: 2rem; margin-top: 12px; margin-bottom: 8px;">SnapHaven for iOS</h2>
+                            <p style="color: var(--text-secondary); font-size: 0.98rem; max-width: 480px; margin: 0 auto 28px;">
+                                Currently awaiting Apple App Store approval. Full-resolution iPhone &amp; iPad photo, Live Photo, and 4K video backup over local Wi-Fi is coming soon!
+                            </p>
+                        </div>
+                        <div>
+                            <div style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--radius-md); border: 1px solid rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.08); color: var(--accent-amber); font-weight: 600; font-size: 1rem;">
+                                <span>🍏 App Store Review in Progress</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -322,7 +347,7 @@
 
                 <div style="display: flex; gap: 8px; flex-direction: column;">
                     <input type="email" name="email" class="beta-input" placeholder="you@example.com" required style="width: 100%;">
-                    <div style="font-size: 0.78rem; color: var(--text-muted); text-align: left;">
+                    <div id="modalEmailHint" style="font-size: 0.78rem; color: var(--text-muted); text-align: left;">
                         💡 Requires the Google Play Store account email on your phone.
                     </div>
                     <button type="submit" class="btn btn-primary btn-rainbow" style="width: 100%; padding: 12px; margin-top: 4px;">

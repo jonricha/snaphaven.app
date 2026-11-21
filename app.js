@@ -51,13 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (icon) icon.innerText = '🍏';
             if (title) title.innerText = 'SnapHaven for iOS';
             if (badge) {
-                badge.innerText = 'In Active Development';
+                badge.innerText = 'Coming Soon to App Store';
                 badge.className = 'badge-tag badge-amber';
             }
-            if (body) body.innerText = 'The SnapHaven iOS application is under active development. Enter your email below to join the TestFlight early access list!';
-            if (platformInput) platformInput.value = 'ios';
+            if (body) body.innerText = 'SnapHaven for iOS is currently awaiting Apple App Store approval and will be available soon.';
             const form = document.getElementById('modalBetaForm');
-            if (form) form.style.display = 'block';
+            if (form) form.style.display = 'none';
         } else {
             if (icon) icon.innerText = '📱';
             if (title) title.innerText = 'SnapHaven Mobile App';
