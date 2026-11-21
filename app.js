@@ -34,27 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (icon) icon.innerText = '🤖';
             if (title) title.innerText = 'SnapHaven for Android';
             if (badge) {
-                badge.innerText = '🟢 Closed Beta Live';
+                badge.innerText = '🟢 Live on Google Play';
                 badge.className = 'badge-tag badge-emerald';
             }
             if (body) body.innerHTML = `
-                SnapHaven for Android is in active Closed Beta on Google Play! Join in 3 easy steps:<br><br>
+                Download the official SnapHaven Android app directly from Google Play!<br><br>
                 <div style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
-                    <a href="https://groups.google.com/g/snaphaven-beta-testers" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 14px; font-size: 0.9rem; justify-content: space-between; display: flex;">
-                        <span>1. Join Google Group</span> <span>↗</span>
+                    <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-rainbow" style="padding: 12px 16px; font-size: 0.95rem; justify-content: space-between; display: flex;">
+                        <span>Download on Google Play</span> <span>↗</span>
                     </a>
-                    <a href="https://play.google.com/apps/testing/app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 14px; font-size: 0.9rem; justify-content: space-between; display: flex;">
-                        <span>2. Opt into Beta</span> <span>↗</span>
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=app.snaphaven" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-rainbow" style="padding: 10px 14px; font-size: 0.9rem; justify-content: space-between; display: flex;">
-                        <span>3. Download on Play Store</span> <span>↗</span>
-                    </a>
-                </div>
-                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 10px; line-height: 1.3; text-align: left;">
-                    ⏱️ <em>Note: Google Play may take 5–15 minutes to sync your access. If the store page displays "Item not found", please wait a few minutes and try again.</em>
-                </div>
-                <div style="font-size: 0.82rem; color: #fbbf24; margin-top: 14px; text-align: left;">
-                    🎁 <strong>Early Perk:</strong> First 50 testers receive a Free Lifetime Pro code! Email <a href="mailto:support@snaphaven.app" style="color: #fde68a;">support@snaphaven.app</a> to claim.
                 </div>
             `;
             const form = document.getElementById('modalBetaForm');
