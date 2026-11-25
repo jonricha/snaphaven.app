@@ -338,7 +338,7 @@
                         </div>
                         <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Smart Triggers &amp; Battery Respect</h3>
                         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 18px;">
-                            SnapHaven runs silently in the background using Android's native <code>WorkManager</code> API. You have full control over when sync operations are allowed to execute:
+                            SnapHaven runs silently in the background on your schedule. You have full control over when automatic photo backups execute:
                         </p>
                         <ul class="feature-specs-list">
                             <li><span class="bullet">⚡</span> <strong>Charging-Only Sync:</strong> Protect your daily battery life by restricting automatic heavy 4K video backups to when your phone is plugged in overnight.</li>
@@ -694,8 +694,9 @@
                             </p>
                             <h4 style="margin-top: 14px; margin-bottom: 6px; color: var(--text-primary);">Organization &amp; Deduplication:</h4>
                             <ul>
+                                <li><strong>Customizable Folder Structure:</strong> In the Server Dashboard under <strong>Settings &gt; Photo Folder Organization</strong>, choose between <em>Original Device Folders</em> (<code>phone/DCIM/Camera/</code>), <em>Year / Month</em> (<code>phone/2026/2026-11/</code>), or <em>Year / Month / Day</em> (<code>phone/2026/11/24/</code>)—ideal for browsing directly in Explorer/Finder or pointing Lightroom, Plex, or Immich External Libraries at your folder.</li>
                                 <li><strong>Byte-for-Byte Preservation:</strong> Files are saved in their exact raw binary format, preserving EXIF metadata, GPS geotags, camera lens data, and original video bitrates.</li>
-                                <li><strong>Deduplication:</strong> If you move photos or reinstall the mobile app, SnapHaven performs a SHA-256 hash comparison. It will never overwrite or re-download photos that already exist in your vault.</li>
+                                <li><strong>Deduplication:</strong> If you move photos, switch folder organization modes, or reinstall the mobile app, SnapHaven performs a SHA-256 hash comparison and will never overwrite or re-upload photos that already exist in your vault.</li>
                             </ul>
                         </div>
                     </div>
